@@ -108,26 +108,6 @@
 }
 @media(prefers-reduced-motion:reduce){#rsvp .s4-scroll,#rsvp .s4-scroll-art,#rsvp .s4-scroll-face,#rsvp .s4-form,#rsvp .s4-open-picture{transition:none!important}}
 
-/* Thank-you layouts deliberately fit the shortened closed-state scroll. */
-#rsvp .s4-thanks .s4-monogram{margin-bottom:.5cqw}
-#rsvp .s4-thanks h3{line-height:1.0}
-#rsvp .s4-thanks .s4-divider-img{width:41%;max-height:3.4cqw;margin:.35cqw auto .55cqw}
-#rsvp .s4-thanks-line{line-height:1.08}
-#rsvp .s4-thanks-icon{max-width:30%;max-height:9cqw;margin:.5cqw auto .4cqw}
-#rsvp .s4-thanks-logistics{line-height:1.14}
-#rsvp .s4-another{margin:.65cqw auto 0;padding:4px 3px}
-@media(max-width:600px){
-  #rsvp .s4-thanks-line{font-size:clamp(14px,3.7cqw,18px)}
-  #rsvp .s4-thanks-logistics{font-size:clamp(11px,2.95cqw,14px);line-height:1.12}
-  #rsvp .s4-thanks-icon{max-height:8.2cqw;margin:0 auto .3cqw}
-  #rsvp .s4-thanks .s4-divider-img{width:40%;max-height:3cqw;margin:.3cqw auto .5cqw}
-  #rsvp .s4-another{font-size:11px;margin-top:.5cqw}
-}
-
-/* Fit the approved Thank You icons tightly—source design unchanged. */
-#rsvp .s4-thanks-icon{max-width:42%;max-height:12cqw;margin:.4cqw auto .5cqw}
-@media(max-width:600px){#rsvp .s4-thanks-icon{max-width:44%;max-height:10cqw;margin:.1cqw auto .3cqw}}
-
 /* Attempt 68 final refinements */
 #rsvp .s4-submit{width:100%;height:clamp(48px,9cqw,75px);margin:2.5cqw auto 0;
   font:600 clamp(14px,3.0cqw,24px)/1.15 'Cormorant Garamond',Georgia,serif;
@@ -144,22 +124,6 @@
   border-left:1px solid #c48b35;border-top:1px solid #c48b35;}
 #rsvp .s4-field.s4-invalid{margin-bottom:clamp(56px,8cqw,73px)!important;}
 #rsvp .s4-field.s4-invalid input{border-color:#bd503a;box-shadow:0 0 0 2px rgba(255,229,194,.44);}
-#rsvp .s4-thanks .s4-monogram{margin-bottom:1.65cqw}
-#rsvp .s4-thanks h3{line-height:1.08;margin:0 0 .85cqw}
-#rsvp .s4-thanks .s4-divider-img{width:43%;max-height:4.25cqw;margin:1.1cqw auto 1.5cqw}
-#rsvp .s4-thanks-line{margin:0 auto 1.1cqw;line-height:1.22}
-#rsvp .s4-thanks-icon{max-width:38%;max-height:12cqw;margin:1.6cqw auto 1.4cqw}
-#rsvp .s4-thanks-logistics{margin:0 auto;line-height:1.34}
-#rsvp .s4-another{margin:2.2cqw auto 0;padding:6px 3px}
-@media(max-width:600px){
-  #rsvp .s4-thanks h3{line-height:1.13}
-  #rsvp .s4-thanks .s4-divider-img{margin:1.3cqw auto 1.6cqw;max-height:4cqw;}
-  #rsvp .s4-thanks-icon{max-width:39%;max-height:11cqw;margin:1.4cqw auto 1.25cqw}
-  #rsvp .s4-thanks-logistics{line-height:1.24}
-  #rsvp .s4-another{margin:1.9cqw auto 0}
-}
-
-
 /* --------------------------------------------------------------------------
    ATTEMPT 69 — native-scroll-safe, progressive one-second unfurl.
    These overrides ONLY change Section 4's animation, never the scroll artwork,
@@ -266,78 +230,96 @@
 #rsvp .s4-form--yes .s4-field,
 #rsvp .s4-form--no .s4-field{margin-bottom:2.15cqw;}
 #rsvp .s4-form .s4-field:has(.s4-phone-tooltip):not(.s4-invalid){margin-bottom:2.15cqw;}
-/* Thank you reuses the original closed-scroll artwork, with no logistics paragraph. */
-#rsvp .s4-thanks-icon{margin:2.4cqw auto 1.8cqw;}
-#rsvp .s4-another{margin-top:2.5cqw;}
 
-
-/* --------------------------------------------------------------------------
-   MOBILE THANK-YOU SAFE-AREA FIX — keep confirmation content clear of the
-   lower lotus ornament on the closed scroll artwork. This is a mobile-only
-   compaction and lift; desktop layout and artwork remain unchanged.
-   -------------------------------------------------------------------------- */
-@media (max-width: 600px) {
-  #rsvp .s4-thanks {
-    top: 16.8cqw;
-    width: 44%;
-  }
-  #rsvp .s4-thanks .s4-monogram {
-    width: 11.8cqw;
-    margin-bottom: 0.8cqw;
-  }
-  #rsvp .s4-thanks h3 {
-    font-size: clamp(18px, 5.2cqw, 24px);
-    line-height: 1.05;
-    margin: 0 0 0.55cqw;
-  }
-  #rsvp .s4-thanks .s4-divider-img {
-    width: 39%;
-    max-height: 3.2cqw;
-    margin: 0.55cqw auto 0.8cqw;
-  }
-  #rsvp .s4-thanks-line {
-    font-size: clamp(13px, 3.45cqw, 17px);
-    line-height: 1.12;
-    margin: 0 auto 0.55cqw;
-    max-width: 96%;
-  }
-  #rsvp .s4-thanks-icon {
-    max-width: 34%;
-    max-height: 8.4cqw;
-    margin: 0.55cqw auto 0.55cqw;
-  }
-  #rsvp .s4-thanks-logistics {
-    font-size: clamp(10.5px, 2.7cqw, 13px);
-    line-height: 1.14;
-    max-width: 94%;
-    margin: 0 auto;
-  }
-  #rsvp .s4-another {
-    font-size: clamp(10px, 2.65cqw, 11.5px);
-    line-height: 1.1;
-    margin: 1cqw auto 0;
-    padding: 2px 3px;
-  }
+/* VERSION 2 — SINGLE, SHARED SCROLL COORDINATE SYSTEM.
+   A consistent anchor is critical to a seamless transition: all five states
+   position the *same source monogram* at identical x/y coordinates and size.
+   Only the content BELOW the monogram may differ in natural length.
+   Scroll artwork remains completely unmodified. */
+#rsvp .s4-scroll-face,
+#rsvp .s4-form,
+#rsvp .s4-thanks {
+  top: 19.5cqw;
+  left: calc(50% - 0.53135cqw);
+  width: 45%;
+}
+#rsvp .s4-form { width: calc(45% - 2px); }
+#rsvp .s4-scroll-face > .s4-monogram,
+#rsvp .s4-form > .s4-monogram,
+#rsvp .s4-thanks > .s4-monogram {
+  display: block;
+  width: 12cqw;
+  max-width: none;
+  height: auto;
+  margin: 0 auto 1.6cqw;
+  object-fit: contain;
 }
 
-@media (max-width: 390px) {
-  #rsvp .s4-thanks {
-    top: 16.3cqw;
-    width: 43.5%;
-  }
-  #rsvp .s4-thanks .s4-monogram {
-    width: 11.2cqw;
-  }
-  #rsvp .s4-thanks-line {
-    font-size: clamp(12.5px, 3.3cqw, 16px);
-  }
-  #rsvp .s4-thanks-logistics {
-    font-size: clamp(10px, 2.6cqw, 12.5px);
-  }
-  #rsvp .s4-thanks-icon {
-    max-height: 7.8cqw;
-  }
-  #rsvp .s4-another {
-    margin-top: 0.8cqw;
-  }
+/* Welcome: compact, balanced content inside the closed-scroll artwork. */
+#rsvp .s4-scroll-face .s4-divider-img {
+  width: 55%;
+  margin: 1.25cqw auto 1.45cqw;
+}
+#rsvp .s4-question {
+  font-size: clamp(13px, 3.4cqw, 26px);
+  line-height: 1.16;
+  margin: 0 0 2.05cqw;
+  text-wrap: balance;
+}
+#rsvp .s4-choices { gap: 1.4cqw; }
+
+/* Thank You: preserve readable copy, maintain breathing space before lotus. */
+#rsvp .s4-thanks { text-align: center; }
+#rsvp .s4-thanks h3 {
+  font-size: clamp(19px, 4.2cqw, 34px);
+  line-height: 1.08;
+  margin: 0;
+  text-wrap: balance;
+}
+#rsvp .s4-thanks .s4-divider-img {
+  width: 41%;
+  max-height: 3.7cqw;
+  margin: 1.15cqw auto 1.3cqw;
+}
+#rsvp .s4-thanks-line {
+  font-size: clamp(14px, 2.8cqw, 23px);
+  line-height: 1.16;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+#rsvp .s4-thanks-icon {
+  max-width: 42%;
+  max-height: 11cqw;
+  object-fit: contain;
+  margin: 1.15cqw auto 1.15cqw;
+}
+#rsvp .s4-thanks-logistics {
+  font-size: clamp(12px, 2.05cqw, 17px);
+  line-height: 1.2;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+#rsvp .s4-another {
+  font-size: clamp(11px, 1.75cqw, 14px);
+  line-height: 1.12;
+  margin: 1.25cqw auto 0;
+  padding: 3px 3px;
+}
+@media (max-width: 600px) {
+  /* Monogram positioning remains SHARED. Only subordinate content adapts. */
+  #rsvp .s4-scroll-face .s4-divider-img { margin: 1.05cqw auto 1.2cqw; }
+  #rsvp .s4-question { font-size: clamp(13px, 3.45cqw, 17px); line-height: 1.13; margin-bottom: 1.8cqw; }
+  #rsvp .s4-thanks h3 { font-size: clamp(17px, 4.8cqw, 23px); line-height: 1.08; }
+  #rsvp .s4-thanks .s4-divider-img { width: 40%; max-height: 3.2cqw; margin: 1.05cqw auto 1.05cqw; }
+  #rsvp .s4-thanks-line { font-size: clamp(12.5px, 3.3cqw, 17px); line-height: 1.13; }
+  #rsvp .s4-thanks-icon { max-width: 49%; max-height: 12cqw; margin: 1cqw auto 1cqw; }
+  #rsvp .s4-thanks-logistics { font-size: clamp(10.5px, 2.65cqw, 14px); line-height: 1.16; }
+  #rsvp .s4-another { font-size: clamp(10px, 2.7cqw, 12px); margin-top: 1cqw; padding: 2px 2px; }
+}
+@media (max-width: 350px) {
+  /* On narrow phones, protect the lower lotus from the longer No message. */
+  #rsvp .s4-thanks h3 { font-size: 16px; }
+  #rsvp .s4-thanks-line { font-size: 12px; }
+  #rsvp .s4-thanks-logistics { font-size: 10px; line-height: 1.13; }
+  #rsvp .s4-thanks-icon { max-height: 10.5cqw; margin: .7cqw auto; }
 }

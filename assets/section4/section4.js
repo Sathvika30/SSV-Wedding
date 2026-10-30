@@ -152,7 +152,7 @@
     noForm.hidden=true;
     thanks.hidden=false;
     if(choice==='yes'){
-      thanksLine.textContent="We can't wait to celebrate with you! ❤️";
+      thanksLine.textContent="We can't wait to celebrate with you!";
       thanksLogistics.textContent='';
       thanksLogistics.hidden=true;
       thanksIcon.src='assets/section4/thanks_diya.png';
