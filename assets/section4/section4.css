@@ -1,0 +1,271 @@
+/* Attempt 68 — Section 4. Every scroll state is one complete approved-artwork PNG.
+   The form is anchored in container width units, NEVER percentages of animation height. */
+#rsvp.s4-rsvp{position:relative;isolation:isolate;scroll-margin-top:76px;padding:clamp(56px,7vw,80px) 0 60px;overflow:hidden;text-align:center;overflow-anchor:none;background:radial-gradient(ellipse 48% 40% at 50% 44%,rgba(255,255,249,.98),transparent 100%),radial-gradient(ellipse at 0% 70%,rgba(215,167,91,.09),transparent 60%),linear-gradient(180deg,#faf0df,#fffaf1 30%,#fff9f0 78%,#f8ecda)}
+#rsvp .s4-inner{position:relative;margin:0 auto;width:100%;max-width:1000px;overflow-anchor:none}
+#rsvp .s4-intro{margin:0 auto 15px;max-width:850px;padding:0 15px}
+#rsvp .s4-eyebrow{display:block;margin-bottom:8px;color:#ab7331;font:700 10px/1.5 'DM Sans',sans-serif;letter-spacing:.26em;text-transform:uppercase}
+#rsvp .s4-intro h2{margin:0;color:#7e2036;font:500 clamp(35px,4.5vw,59px)/1.08 'Cormorant Garamond',Georgia,serif}
+#rsvp .s4-intro p{margin:7px auto 0;color:#865c42;font:500 clamp(17px,2.2vw,23px)/1.25 'Cormorant Garamond',Georgia,serif}
+#rsvp .s4-scroll{position:relative;width:min(780px,100%);margin:0 auto;container-type:inline-size;overflow-anchor:none;isolation:isolate;transition:height 1s cubic-bezier(.26,.65,.24,1);background:transparent;box-shadow:none;filter:none;touch-action:pan-y}
+#rsvp .s4-scroll-art{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none;pointer-events:none;filter:none;box-shadow:none}
+#rsvp .s4-scroll-closed{position:relative;opacity:1;transition:opacity .22s linear}
+#rsvp .s4-open-picture{display:block;position:absolute;inset:0 auto auto 0;width:100%;opacity:0;pointer-events:none;transition:opacity .22s linear}
+#rsvp .s4-scroll:is([data-s4-state="opening"],[data-s4-state="open"],[data-s4-state="closing"]){overflow:hidden}
+#rsvp .s4-scroll:is([data-s4-state="opening"],[data-s4-state="open"],[data-s4-state="closing"]) .s4-scroll-closed{position:absolute;inset:0 auto auto 0}
+#rsvp .s4-scroll:is([data-s4-state="opening"],[data-s4-state="open"])[data-s4-choice="yes"] .s4-open-picture--yes,
+#rsvp .s4-scroll:is([data-s4-state="opening"],[data-s4-state="open"])[data-s4-choice="no"] .s4-open-picture--no{opacity:1}
+#rsvp .s4-scroll:is([data-s4-state="opening"],[data-s4-state="open"]) .s4-scroll-closed{opacity:0}
+#rsvp .s4-scroll[data-s4-state="closing"] .s4-scroll-closed{opacity:1}
+#rsvp .s4-scroll[data-s4-state="closing"] .s4-open-picture{opacity:0}
+#rsvp [hidden]{display:none!important}
+/* Fixed native-scene coordinates scaled uniformly with image width */
+#rsvp .s4-scroll-face,#rsvp .s4-form,#rsvp .s4-thanks{position:absolute;left:50%;top:18cqw;transform:translateX(-50%);width:46%;box-sizing:border-box;color:#ffecd0}
+#rsvp .s4-scroll-face{z-index:3;display:flex;flex-direction:column;align-items:center;text-align:center;transition:opacity .18s linear;opacity:1}
+#rsvp .s4-scroll:is([data-s4-state="opening"],[data-s4-state="open"]) .s4-scroll-face{opacity:0;pointer-events:none}
+#rsvp .s4-monogram{display:block;width:14cqw;max-width:none;height:auto;margin:0 auto 2.05cqw;object-fit:contain;filter:drop-shadow(0 1px 1px rgba(30,0,0,.22))}
+#rsvp .s4-title{margin:0;display:flex;flex-direction:column;align-items:center;line-height:.93;color:#ffe7b5;text-shadow:0 1px 2px #3e0610}
+#rsvp .s4-title span{font:500 5.2cqw/.95 'Cormorant Garamond',Georgia,serif;letter-spacing:.015em}
+#rsvp .s4-title strong{font:500 8.2cqw/1 'Cormorant Garamond',Georgia,serif;letter-spacing:.03em}
+#rsvp .s4-divider-img{display:block;width:65%;height:auto;max-height:6cqw;object-fit:contain;margin:1.65cqw auto 2.1cqw;filter:brightness(1.35) saturate(.8)}
+#rsvp .s4-question{margin:0 0 3cqw;font:500 3.35cqw/1.23 'Cormorant Garamond',Georgia,serif;color:#ffefd6;text-shadow:0 1px 2px rgba(65,4,12,.5)}
+#rsvp .s4-question em{font-style:normal;font-weight:700;color:#ffe9b9}
+#rsvp .s4-choices{width:100%;display:flex;flex-direction:column;align-items:center;gap:1.7cqw}
+#rsvp .s4-choice{width:89%;min-height:6.3cqw;box-sizing:border-box;padding:1cqw .7cqw;border-radius:99px;font:650 2.72cqw/1.1 'Cormorant Garamond',Georgia,serif;white-space:normal;text-align:center;cursor:pointer;transition:filter .18s ease,transform .18s ease}
+#rsvp .s4-choice--yes{border:2px solid #dfaa4c;background:linear-gradient(180deg,#fffef1,#fff4d8 72%,#edcf93);color:#4e241a;box-shadow:inset 0 0 0 2px rgba(255,255,238,.85)}
+#rsvp .s4-choice--no{border:1.5px solid #dfa959;background:linear-gradient(180deg,#830d1c,#6d0714);color:#fff0d4}
+#rsvp .s4-choice:hover,#rsvp .s4-submit:hover{filter:brightness(1.055)}
+#rsvp :is(button,input,textarea):focus-visible{outline:3px solid #ffe099;outline-offset:2px}
+/* Real editable HTML forms, narrow enough to never overlap the side filigree */
+#rsvp .s4-form{z-index:4;display:block;margin:0;padding:0;text-align:left;border:0;font-family:'Cormorant Garamond',Georgia,serif;opacity:0;transition:opacity .23s ease;pointer-events:none}
+#rsvp .s4-scroll:is([data-s4-state="opening"],[data-s4-state="open"]) .s4-form:not([hidden]){opacity:1}
+#rsvp .s4-scroll[data-s4-state="open"] .s4-form:not([hidden]){pointer-events:auto}
+#rsvp .s4-form-title{margin:0;text-align:center;color:#ffe8b7;font:600 clamp(18px,3.85cqw,31px)/1.05 'Cormorant Garamond',Georgia,serif;text-wrap:balance}
+#rsvp .s4-form-subtitle{margin:1.9cqw auto 1.25cqw;max-width:100%;text-align:center;color:#fff0dc;font:500 clamp(12px,2.16cqw,17px)/1.23 'Cormorant Garamond',Georgia,serif}
+#rsvp .s4-form .s4-divider-img{width:51%;margin:1.2cqw auto 2.0cqw}
+#rsvp .s4-field{margin:0 0 2.25cqw;min-width:0}
+#rsvp .s4-field label:not(.s4-mini-field),#rsvp .s4-fieldset legend{display:block;margin:0 0 .63cqw;color:#ffebca;font:600 clamp(12px,2.35cqw,18px)/1.16 'Cormorant Garamond',Georgia,serif;text-align:left}
+#rsvp .s4-optional{font-weight:400;font-size:.89em;color:#edd4ad}
+#rsvp .s4-form :is(input:not([type=checkbox]),textarea){box-sizing:border-box;display:block;min-width:0;width:100%;min-height:clamp(41px,5.75cqw,49px);padding:9px clamp(7px,1.4cqw,12px);background:#fff7e9;color:#5b3525;border:1px solid #d9a858;border-radius:8px;box-shadow:none;font:400 clamp(12px,1.8cqw,15px)/1.24 'DM Sans',Arial,sans-serif}
+#rsvp .s4-form :is(input,textarea)::placeholder{color:#ad9d88;opacity:.67;font-weight:400}
+#rsvp .s4-form textarea{resize:vertical;min-height:clamp(66px,10cqw,90px)}
+#rsvp .s4-accessible-hint{position:absolute;width:1px;height:1px;margin:-1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+#rsvp .s4-fieldset{margin:0;padding:0;border:0;min-width:0}
+#rsvp .s4-arrival-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.1cqw}
+#rsvp .s4-arrival-row .s4-mini-field{display:block;min-width:0;font-size:initial}
+#rsvp .s4-mini-field span{display:block;margin:0 0 3px;color:#e8c595;font:500 clamp(11px,1.55cqw,13px)/1.1 'DM Sans',Arial,sans-serif;letter-spacing:.02em}
+#rsvp .s4-arrival-row input{font-size:clamp(12px,1.7cqw,14px);padding:7px 5px!important}
+#rsvp .s4-field-hint{margin:4px 0 7px;color:#f7d8b1;font:500 clamp(11px,1.78cqw,14px)/1.16 'Cormorant Garamond',Georgia,serif}
+#rsvp .s4-events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.3cqw}
+#rsvp .s4-event{box-sizing:border-box;position:relative;min-width:0;display:flex!important;flex-direction:column;align-items:center;justify-content:center;min-height:clamp(82px,12cqw,108px);gap:3px;padding:6px 3px 5px 3px;border:1.4px solid #d49b3e;border-radius:8px;background:#fff4dd;color:#6d251e;font:600 clamp(11px,2.0cqw,16px)/1.12 'Cormorant Garamond',Georgia,serif!important;text-align:center;cursor:pointer;transition:background .18s,border-color .18s}
+#rsvp .s4-event img{display:block;max-width:100%;width:auto;height:clamp(35px,7.0cqw,59px);object-fit:contain;mix-blend-mode:multiply;margin:0 auto}
+#rsvp .s4-event span{display:block;text-align:center;color:#64261d!important;overflow-wrap:anywhere}
+#rsvp .s4-event input[type=checkbox]{position:absolute;top:7px;left:5px;transform:none;margin:0;width:15px;height:15px;accent-color:#a56e24;cursor:pointer}
+#rsvp .s4-event:has(input:checked){background:#ffe1ac;border-color:#b87722}
+#rsvp .s4-event-error{color:#fff0bb;font:600 12px/1.2 'DM Sans',sans-serif;margin:6px 0 0}
+#rsvp .s4-submit{display:flex;align-items:center;justify-content:center;width:94%;height:clamp(52px,8.2cqw,72px);margin:2.65cqw auto 0;padding:8px 8px;border:0;border-radius:99px;background:transparent url('submit_ornate_blank.webp') center/100% 100% no-repeat;color:#5a2719;font:700 clamp(15px,3.0cqw,24px)/1.08 'Cormorant Garamond',Georgia,serif;cursor:pointer;white-space:nowrap;text-shadow:0 1px 0 #fff5db}
+#rsvp .s4-back{display:block;margin:1.6cqw auto 0;padding:8px 6px;border:0;background:transparent;color:#f1d5a6;font:500 clamp(12px,1.9cqw,15px)/1.2 'Cormorant Garamond',Georgia,serif;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+#rsvp .s4-thanks{z-index:3;text-align:center;opacity:1}
+#rsvp .s4-thanks h3{margin:0;color:#ffe5b2;font:600 clamp(22px,4.45cqw,37px)/1.06 'Cormorant Garamond',Georgia,serif}
+#rsvp .s4-thanks .s4-divider-img{width:49%;margin:1.55cqw auto}
+#rsvp .s4-thanks-line{margin:0 auto;color:#fff0d4;font:600 clamp(15px,3cqw,24px)/1.13 'Cormorant Garamond',Georgia,serif}
+#rsvp .s4-thanks-icon{display:block;max-width:36%;max-height:16cqw;object-fit:contain;margin:1cqw auto}
+#rsvp .s4-thanks-logistics{margin:0;color:#ffefcf;font:500 clamp(12px,2.3cqw,19px)/1.22 'Cormorant Garamond',Georgia,serif}
+#rsvp .s4-another{display:block;margin:2cqw auto 0;padding:6px 8px;color:#e2ba81;background:transparent;border:0;border-bottom:1px solid rgba(234,192,126,.55);font:500 clamp(10px,1.7cqw,14px)/1.1 'Cormorant Garamond',Georgia,serif;cursor:pointer}
+#rsvp .s4-demo-notice{max-width:460px;margin:12px auto 0;padding:0 18px;color:#98745a;font:400 11px/1.35 'DM Sans',Arial,sans-serif}
+@media(max-width:600px){
+ #rsvp.s4-rsvp{padding:48px 0 50px}
+ #rsvp .s4-intro{margin-bottom:10px}
+ #rsvp .s4-intro h2{font-size:clamp(31px,8.9vw,45px)}
+ #rsvp .s4-intro p{font-size:clamp(16px,4.8vw,20px)}
+ #rsvp .s4-eyebrow{font-size:9px}
+ #rsvp .s4-scroll{width:100%}
+ #rsvp .s4-scroll-face,#rsvp .s4-form,#rsvp .s4-thanks{width:46%}
+ #rsvp .s4-form .s4-field{margin-bottom:9px}
+ #rsvp .s4-form .s4-field label:not(.s4-mini-field),#rsvp .s4-fieldset legend{margin-bottom:5px;font-size:13px}
+ #rsvp .s4-arrival-row{grid-template-columns:1fr;gap:7px}
+ #rsvp .s4-event{min-height:94px;gap:4px;padding:4px 3px 4px 3px}
+ #rsvp .s4-event img{height:clamp(34px,10cqw,46px)}
+ #rsvp .s4-event span{font-size:11px;overflow-wrap:normal}
+ #rsvp .s4-event input[type=checkbox]{width:13px;height:13px;left:4px}
+ #rsvp .s4-form-title{font-size:clamp(19px,5.4cqw,26px)}
+ #rsvp .s4-form-subtitle{font-size:clamp(12px,3.4cqw,15px)}
+ #rsvp .s4-thanks-logistics{font-size:clamp(12px,3.4cqw,16px)}
+ #rsvp .s4-thanks-line{font-size:clamp(15px,4.3cqw,20px)}
+ #rsvp .s4-thanks h3{font-size:clamp(20px,6.1cqw,26px)}
+ #rsvp .s4-thanks-icon{max-width:31%;max-height:17cqw}
+ #rsvp .s4-choice{min-height:35px;font-size:clamp(12px,3.25cqw,15px)}
+ #rsvp .s4-question{font-size:clamp(13px,3.9cqw,17px)}
+ #rsvp .s4-form textarea{min-height:70px}
+}
+@media(max-width:350px){
+ #rsvp .s4-form .s4-field{margin-bottom:8px}
+ #rsvp .s4-form .s4-field label:not(.s4-mini-field),#rsvp .s4-fieldset legend{font-size:12px}
+ #rsvp .s4-event{min-height:85px;padding-left:2px}
+ #rsvp .s4-event span{font-size:11px}
+ #rsvp .s4-form-title{font-size:19px}
+ #rsvp .s4-form-subtitle{font-size:12px}
+ #rsvp .s4-submit{height:49px}
+}
+@media(prefers-reduced-motion:reduce){#rsvp .s4-scroll,#rsvp .s4-scroll-art,#rsvp .s4-scroll-face,#rsvp .s4-form,#rsvp .s4-open-picture{transition:none!important}}
+
+/* Thank-you layouts deliberately fit the shortened closed-state scroll. */
+#rsvp .s4-thanks .s4-monogram{margin-bottom:.5cqw}
+#rsvp .s4-thanks h3{line-height:1.0}
+#rsvp .s4-thanks .s4-divider-img{width:41%;max-height:3.4cqw;margin:.35cqw auto .55cqw}
+#rsvp .s4-thanks-line{line-height:1.08}
+#rsvp .s4-thanks-icon{max-width:30%;max-height:9cqw;margin:.5cqw auto .4cqw}
+#rsvp .s4-thanks-logistics{line-height:1.14}
+#rsvp .s4-another{margin:.65cqw auto 0;padding:4px 3px}
+@media(max-width:600px){
+  #rsvp .s4-thanks-line{font-size:clamp(14px,3.7cqw,18px)}
+  #rsvp .s4-thanks-logistics{font-size:clamp(11px,2.95cqw,14px);line-height:1.12}
+  #rsvp .s4-thanks-icon{max-height:8.2cqw;margin:0 auto .3cqw}
+  #rsvp .s4-thanks .s4-divider-img{width:40%;max-height:3cqw;margin:.3cqw auto .5cqw}
+  #rsvp .s4-another{font-size:11px;margin-top:.5cqw}
+}
+
+/* Fit the approved Thank You icons tightly—source design unchanged. */
+#rsvp .s4-thanks-icon{max-width:42%;max-height:12cqw;margin:.4cqw auto .5cqw}
+@media(max-width:600px){#rsvp .s4-thanks-icon{max-width:44%;max-height:10cqw;margin:.1cqw auto .3cqw}}
+
+/* Attempt 68 final refinements */
+#rsvp .s4-submit{width:100%;height:clamp(48px,9cqw,75px);margin:2.5cqw auto 0;
+  font:600 clamp(14px,3.0cqw,24px)/1.15 'Cormorant Garamond',Georgia,serif;
+  text-shadow:0 1px 0 rgba(255,249,222,.64);background-position:center;background-size:100% 100%;}
+#rsvp .s4-form .s4-field:has(.s4-phone-tooltip){position:relative;}
+#rsvp .s4-phone-tooltip{display:block;position:absolute;z-index:12;
+  top:calc(100% + 5px);left:2%;right:2%;padding:8px 10px;
+  background:#fff6e5;border:1px solid #c48b35;border-radius:8px;
+  box-shadow:0 4px 12px rgba(35,4,12,.26);color:#733020;
+  text-align:left;font:600 clamp(11px,1.65cqw,13px)/1.4 'DM Sans',Arial,sans-serif;}
+#rsvp .s4-phone-tooltip[hidden]{display:none!important;}
+#rsvp .s4-phone-tooltip::before{content:'';position:absolute;top:-6px;left:16px;
+  width:10px;height:10px;transform:rotate(45deg);background:#fff6e5;
+  border-left:1px solid #c48b35;border-top:1px solid #c48b35;}
+#rsvp .s4-field.s4-invalid{margin-bottom:clamp(56px,8cqw,73px)!important;}
+#rsvp .s4-field.s4-invalid input{border-color:#bd503a;box-shadow:0 0 0 2px rgba(255,229,194,.44);}
+#rsvp .s4-thanks .s4-monogram{margin-bottom:1.65cqw}
+#rsvp .s4-thanks h3{line-height:1.08;margin:0 0 .85cqw}
+#rsvp .s4-thanks .s4-divider-img{width:43%;max-height:4.25cqw;margin:1.1cqw auto 1.5cqw}
+#rsvp .s4-thanks-line{margin:0 auto 1.1cqw;line-height:1.22}
+#rsvp .s4-thanks-icon{max-width:38%;max-height:12cqw;margin:1.6cqw auto 1.4cqw}
+#rsvp .s4-thanks-logistics{margin:0 auto;line-height:1.34}
+#rsvp .s4-another{margin:2.2cqw auto 0;padding:6px 3px}
+@media(max-width:600px){
+  #rsvp .s4-thanks h3{line-height:1.13}
+  #rsvp .s4-thanks .s4-divider-img{margin:1.3cqw auto 1.6cqw;max-height:4cqw;}
+  #rsvp .s4-thanks-icon{max-width:39%;max-height:11cqw;margin:1.4cqw auto 1.25cqw}
+  #rsvp .s4-thanks-logistics{line-height:1.24}
+  #rsvp .s4-another{margin:1.9cqw auto 0}
+}
+
+
+/* --------------------------------------------------------------------------
+   ATTEMPT 69 — native-scroll-safe, progressive one-second unfurl.
+   These overrides ONLY change Section 4's animation, never the scroll artwork,
+   forms, ornament dimensions or any site-wide scrolling behaviour.
+   -------------------------------------------------------------------------- */
+#rsvp .s4-scroll {transition:none!important;touch-action:pan-y;}
+#rsvp .s4-scroll-closed,
+#rsvp .s4-open-picture,
+#rsvp .s4-scroll-face,
+#rsvp .s4-form {transition:none!important;}
+/* In the opening state the first frame is exactly the intact closed scroll. */
+#rsvp .s4-scroll[data-s4-state="opening"] .s4-scroll-closed{opacity:1;}
+#rsvp .s4-scroll[data-s4-state="opening"] .s4-scroll-face{opacity:1;}
+#rsvp .s4-scroll[data-s4-state="opening"] .s4-open-picture{clip-path:inset(0 0 100% 0);}
+#rsvp .s4-scroll[data-s4-state="opening"] .s4-form:not([hidden]){
+  opacity:1;clip-path:inset(0 0 100% 0);pointer-events:auto;
+}
+/* On completion the complete expanded PNG and HTML form remain visible. */
+#rsvp .s4-scroll[data-s4-state="open"] .s4-open-picture{clip-path:none;}
+#rsvp .s4-scroll[data-s4-state="open"] .s4-form:not([hidden]){opacity:1;clip-path:none;pointer-events:auto;}
+/* The closed invitation returns immediately when Back is pressed. */
+#rsvp .s4-scroll[data-s4-state="closed"] .s4-scroll-closed{opacity:1;}
+#rsvp .s4-scroll[data-s4-state="closed"] .s4-scroll-face{opacity:1;}
+@media(prefers-reduced-motion:reduce){
+ #rsvp .s4-scroll[data-s4-state="opening"] .s4-open-picture,
+ #rsvp .s4-scroll[data-s4-state="opening"] .s4-form:not([hidden]){clip-path:none;}
+}
+
+/* --------------------------------------------------------------------------
+   ATTEMPT 70 — harmonise field/button widths within the maroon safe area.
+   Preserve complete scroll PNGs and all approved ornament styling.
+   -------------------------------------------------------------------------- */
+#rsvp .s4-form {width:45%;}
+#rsvp .s4-form .s4-field,
+#rsvp .s4-form .s4-fieldset,
+#rsvp .s4-form .s4-arrival-row {width:100%;max-width:100%;box-sizing:border-box;}
+#rsvp .s4-form :is(input:not([type=checkbox]),textarea) {width:100%;max-width:100%;box-sizing:border-box;}
+#rsvp .s4-form .s4-mini-field {min-width:0;max-width:100%;}
+#rsvp .s4-submit {width:88%;max-width:88%;height:clamp(43px,7.35cqw,61px);margin-top:2.1cqw;}
+#rsvp .s4-choices .s4-choice {width:81%;min-height:5.85cqw;}
+@media(max-width:600px) {
+ #rsvp .s4-form {width:45%;}
+ #rsvp .s4-submit {width:90%;max-width:90%;height:clamp(42px,7.5cqw,54px);}
+ #rsvp .s4-choices .s4-choice {width:81%;min-height:34px;}
+}
+@media(max-width:350px) {
+ #rsvp .s4-event span {font-size:10px;line-height:1.05;overflow-wrap:anywhere;word-break:normal;}
+}
+
+/* ATTEMPT 71 — arrival date only on 18–20 November 2026.
+   Narrow the complete form by 2px symmetrically, giving 1px extra
+   breathing room at each gold rail while keeping its centre unchanged. */
+#rsvp .s4-form{width:calc(45% - 2px);}
+#rsvp .s4-form .s4-arrival-row select{
+  box-sizing:border-box;display:block;width:100%;max-width:100%;min-width:0;
+  min-height:clamp(41px,5.75cqw,49px);
+  padding:7px 24px 7px 9px;
+  background-color:#fff7e9;
+  color:#5b3525;border:1px solid #d9a858;border-radius:8px;
+  box-shadow:none;
+  font:400 clamp(12px,1.7cqw,14px)/1.24 'DM Sans',Arial,sans-serif;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5 7 5 5 5-5' fill='none' stroke='%239c6e30' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 7px center;background-size:15px 15px;
+}
+#rsvp .s4-form .s4-arrival-row select:invalid{color:#ad9d88;}
+#rsvp .s4-form .s4-arrival-row select option{color:#5b3525;}
+#rsvp .s4-form .s4-arrival-row select:focus-visible{outline:3px solid #ffe099;outline-offset:2px;}
+
+/* --------------------------------------------------------------------------
+   ATTEMPT 72 — optical alignment to the maroon fabric, not the PNG canvas.
+   The artwork's left/right vertical border midline is x≈465.5 on a
+   941px-wide master, while the image canvas midline is x=470.5.
+   Correct by -5/941 of the rendered image width. Because all scroll states
+   share the exact same upper border coordinates, the same rule applies to
+   invitation, YES, NO and both Thank You states, at every viewport width.
+   No independent field, button or artwork offsets are introduced.
+   -------------------------------------------------------------------------- */
+#rsvp .s4-scroll-face,
+#rsvp .s4-form,
+#rsvp .s4-thanks {
+  left: calc(50% - 0.53135cqw);
+}
+
+/* RSVP intro only: preserve the approved scroll and every existing form state. */
+#rsvp.s4-rsvp{background:radial-gradient(ellipse 48% 40% at 50% 44%,rgba(255,255,249,.98),transparent 100%),radial-gradient(ellipse at 0% 70%,rgba(215,167,91,.09),transparent 60%),linear-gradient(180deg,#fff6e9 0%,#fffaf1 30%,#fff9f0 78%,#f8ecda 100%);padding-top:clamp(43px,6vw,65px);}
+#rsvp .s4-intro{margin-bottom:12px;}
+#rsvp .s4-intro h2{font:500 clamp(36px,4.7vw,61px)/1.1 'Cormorant Garamond',Georgia,serif;color:#7e2036;}
+@media(max-width:600px){
+ #rsvp.s4-rsvp{padding-top:38px;}
+ #rsvp .s4-intro{margin-bottom:8px;padding:0 14px;}
+ #rsvp .s4-intro h2{font-size:clamp(30px,8.2vw,42px);}
+}
+
+/* ATTEMPT 75 F06 — Remove exaggerated space between final divider and RSVP heading.
+   Scroll artwork, form positioning and backend scripts are deliberately untouched. */
+#rsvp.s4-rsvp{padding-top:18px;}
+#rsvp .s4-intro{margin-bottom:12px;}
+@media(max-width:760px){#rsvp.s4-rsvp{padding-top:12px;}}
+@media(max-width:420px){#rsvp.s4-rsvp{padding-top:9px;}}
+
+/* VERSION 2 — both three-field forms use the existing shorter No-scroll artwork.
+   The two forms share dimensions and optical centring, no image modification. */
+#rsvp .s4-form--yes .s4-field,
+#rsvp .s4-form--no .s4-field{margin-bottom:2.15cqw;}
+#rsvp .s4-form .s4-field:has(.s4-phone-tooltip):not(.s4-invalid){margin-bottom:2.15cqw;}
+/* Thank you reuses the original closed-scroll artwork, with no logistics paragraph. */
+#rsvp .s4-thanks-icon{margin:2.4cqw auto 1.8cqw;}
+#rsvp .s4-another{margin-top:2.5cqw;}

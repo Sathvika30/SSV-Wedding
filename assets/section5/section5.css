@@ -1,0 +1,896 @@
+/* SECTION FIVE — polished mobile-first venue section */
+#venue.s5-venue {
+  --s5-wine: #8b0f2b;
+  --s5-ink: #5a473b;
+  position: relative;
+  overflow: hidden;
+  margin-top: -2px;
+  width: 100%;
+  padding: 0;
+  background: #fff3df url('./ivory_parchment_base.jpg') center top / cover no-repeat;
+  color: var(--s5-ink);
+  text-align: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+#venue.s5-venue::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 72% 24% at 50% 34%, rgba(255,250,241,.34), transparent 73%),
+    linear-gradient(180deg, rgba(255,248,238,.42) 0%, rgba(255,248,238,0) 22%, rgba(232,160,104,.05) 77%, rgba(219,128,70,.1) 100%);
+}
+#venue .s5-content,
+#venue .s5-scenery { position: relative; z-index: 2; }
+
+#venue .s5-content {
+  max-width: 418px;
+  margin: 0 auto;
+  padding: 0 14px;
+}
+#venue .s5-heading { padding-top: clamp(166px, 50vw, 196px); }
+#venue .s5-heading h2 {
+  margin: 0 0 8px;
+  font-size: clamp(56px, 15vw, 70px);
+  line-height: .92;
+  font-weight: 600;
+  letter-spacing: -.04em;
+  color: var(--s5-wine);
+}
+#venue .s5-heading p {
+  margin: 0;
+  color: #5b4a3e;
+  font: 600 10px/1.45 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: .20em;
+  text-transform: uppercase;
+}
+
+/* Attempt 66_9 — mobile-first ornamental venue plaque. Editable text and CTA. */
+#venue .s5-card-wrap {
+  width: 100%;
+  max-width: 430px;
+  margin: 9px auto 0;
+}
+#venue .s5-venue-card {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 9 / 10;
+  display: block;
+  background: url('./venue_card_lotus_9x10.webp') center center / 100% 100% no-repeat;
+}
+#venue .s5-card-content {
+  position: absolute;
+  z-index: 1;
+  top: 24.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 82%;
+  max-width: 480px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+#venue .s5-card-content h3 {
+  margin: 0;
+  padding: 4px 0;
+  color: var(--s5-wine);
+  font-size: clamp(17px, 5vw, 23px);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -.018em;
+}
+#venue .s5-venue-line { display: block; white-space: nowrap; }
+#venue .s5-card-approved-divider {
+  display: block;
+  width: min(56%, 178px);
+  height: auto;
+  margin: 8px auto 4px;
+}
+#venue .s5-ballroom {
+  margin: 0 0 8px;
+  color: var(--s5-ink);
+  font-size: clamp(17px, 4.8vw, 22px);
+  line-height: 1.08;
+}
+#venue .s5-card-content address {
+  margin: 0 auto 10px;
+  max-width: 100%;
+  color: #655349;
+  font-style: normal;
+  font-size: clamp(10px, 2.85vw, 12px);
+  line-height: 1.26;
+}
+#venue .s5-direction-button {
+  display: block;
+  width: min(72%, 196px);
+  margin: 0 auto;
+  text-decoration: none;
+  line-height: 0;
+  flex: none;
+}
+#venue .s5-direction-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+#venue .s5-direction-button:focus-visible {
+  outline: 3px solid #d79f4f;
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+#venue .s5-countdown-block {
+  max-width: 390px;
+  margin: 6px auto 0;
+}
+#venue .s5-countdown-editorial {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#venue .s5-countdown-divider {
+  display: block;
+  width: min(72%, 282px);
+  height: auto;
+  margin: 0 auto 10px;
+  opacity: .95;
+}
+#venue .s5-days-stage {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(46px, 1fr) auto minmax(46px, 1fr);
+  align-items: center;
+  gap: 0;
+}
+#venue .s5-count-flourish {
+  width: 78px;
+  max-width: 100%;
+  height: auto;
+  opacity: .82;
+}
+#venue .s5-count-flourish-left { justify-self: end; transform: translateX(16px) translateY(4px); }
+#venue .s5-count-flourish-right { justify-self: start; transform: translateX(-16px) translateY(4px); }
+#venue .s5-days-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+#venue .s5-days-hero strong {
+  color: var(--s5-wine);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(104px, 31vw, 146px);
+  line-height: .82;
+  font-weight: 500;
+  letter-spacing: -.04em;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: 'lnum' 1, 'tnum' 1;
+  text-rendering: optimizeLegibility;
+  min-width: 2ch;
+  text-align: center;
+}
+#venue .s5-days-hero strong,
+#venue .s5-time-unit strong {
+  display: block;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: 'lnum' 1, 'tnum' 1;
+  text-align: center;
+}
+#venue .s5-days-hero span {
+  margin-top: 4px;
+  color: #6a584a;
+  font: 500 13px/1 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  padding-left: .38em;
+}
+#venue .s5-time-strip {
+  width: min(100%, 330px);
+  margin: 10px auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 14px 1fr 14px 1fr;
+  align-items: end;
+  column-gap: 10px;
+}
+#venue .s5-time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  gap: 3px;
+}
+#venue .s5-time-unit strong {
+  color: var(--s5-wine);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(36px, 10.2vw, 46px);
+  line-height: .9;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  min-width: 2ch;
+}
+#venue .s5-time-unit span {
+  color: #6c594b;
+  font: 600 9px/1 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  padding-left: .24em;
+  white-space: nowrap;
+}
+#venue .s5-time-separator {
+  justify-self: center;
+  position: relative;
+  width: 14px;
+  height: 48px;
+  align-self: center;
+}
+#venue .s5-time-separator::before,
+#venue .s5-time-separator::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background: linear-gradient(180deg, rgba(205,164,92,0) 0%, rgba(205,164,92,.95) 100%);
+}
+#venue .s5-time-separator::before { top: 0; height: 22px; }
+#venue .s5-time-separator::after { bottom: 0; height: 22px; }
+#venue .s5-time-separator { background: transparent; }
+#venue .s5-time-separator:after,
+#venue .s5-time-separator:before {}
+#venue .s5-time-separator::marker { content: ''; }
+#venue .s5-time-separator > * { display: none; }
+#venue .s5-time-separator::selection { background: transparent; }
+#venue .s5-time-separator:empty::after,
+#venue .s5-time-separator:empty::before {}
+#venue .s5-time-separator:empty {
+  background-image: radial-gradient(circle at 50% 50%, #d4a859 0 2px, transparent 2.2px), linear-gradient(180deg, rgba(205,164,92,0) 0%, rgba(205,164,92,.95) 100%), linear-gradient(180deg, rgba(205,164,92,0) 0%, rgba(205,164,92,.95) 100%);
+  background-size: 4px 4px, 1px 22px, 1px 22px;
+  background-position: center center, center 0, center calc(100% - 0px);
+  background-repeat: no-repeat;
+}
+#venue .s5-countdown-complete {
+  margin: 10px auto 0;
+  color: var(--s5-wine);
+  font-size: 24px;
+}
+#venue [hidden] { display: none !important; }
+
+#venue .s5-scenery {
+  margin-top: -36px;
+  height: 236px;
+  overflow: hidden;
+  position: relative;
+}
+#venue .s5-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(255,243,223,1) 0%, rgba(255,243,223,.98) 10%, rgba(255,243,223,.86) 18%, rgba(255,243,223,.52) 28%, rgba(255,243,223,.14) 38%, rgba(255,243,223,0) 48%, rgba(255,243,223,0) 100%),
+    linear-gradient(180deg, rgba(255,243,223,0) 0%, rgba(255,243,223,0) 84%, rgba(233,176,116,.10) 100%);
+  pointer-events: none;
+}
+#venue .s5-waterfront {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 14%;
+  transform: translateY(-8px);
+}
+
+
+#venue .s5-footer-decor {
+  position: absolute;
+  z-index: 3;
+  bottom: -2px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  pointer-events: none;
+}
+#venue .s5-footer-decor-left { left: -6px; }
+#venue .s5-footer-decor-right { right: -6px; flex-direction: row-reverse; }
+#venue .s5-footer-decor .s5-floor-lamp { width: 44px; height: auto; opacity: .98; }
+#venue .s5-footer-decor .s5-floor-diya { width: 56px; height: auto; }
+#venue .s5-footer-decor .s5-floor-flowers { width: 86px; height: auto; }
+
+@media (max-width: 350px) {
+  #venue .s5-floral-top { height: 164px; inset: 12px 0 auto; }
+  #venue .s5-garland-l1 { width: 41px; left: 10px; top: 20px; }
+  #venue .s5-garland-l2 { width: 24px; left: 24px; top: 18px; }
+  #venue .s5-garland-r2 { width: 35px; right: 12px; top: 18px; }
+  #venue .s5-hanging-lamp-left { width: 48px; left: 28%; top: 17px; }
+  #venue .s5-hanging-lamp-right { width: 50px; right: 28%; top: 15px; }
+  #venue .s5-heading { padding-top: 160px; }
+  #venue .s5-heading h2 { font-size: 54px; }
+  #venue .s5-heading p { font-size: 9px; }
+  #venue .s5-card-wrap { max-width: 332px; }
+  #venue .s5-card-content { top: 24%; width: 82%; }
+  #venue .s5-card-content h3 { font-size: 16.5px; }
+  #venue .s5-card-approved-divider { width: 57%; margin: 7px auto 3px; }
+  #venue .s5-ballroom { font-size: 16px; margin-bottom: 7px; }
+  #venue .s5-card-content address { font-size: 9.5px; margin-bottom: 8px; }
+  #venue .s5-direction-button { width: min(72%, 180px); }
+  #venue .s5-countdown-block { margin-top: 4px; }
+  #venue .s5-countdown-divider { width: min(74%, 248px); margin-bottom: 8px; }
+  #venue .s5-count-flourish { width: 62px; }
+  #venue .s5-count-flourish-left { transform: translateX(12px) translateY(6px); }
+  #venue .s5-count-flourish-right { transform: translateX(-12px) translateY(6px); }
+  #venue .s5-days-hero strong { font-size: clamp(92px, 30vw, 118px); }
+  #venue .s5-days-hero span { font-size: 10px; }
+  #venue .s5-time-strip { margin-top: 8px; width: min(100%, 292px); grid-template-columns: 1fr 12px 1fr 12px 1fr; column-gap: 8px; }
+  #venue .s5-time-unit strong { font-size: 31px; }
+  #venue .s5-time-unit span { font-size: 7.5px; }
+  #venue .s5-time-separator { width: 12px; height: 42px; }
+  #venue .s5-scenery { height: 204px; margin-top: -46px; }
+  #venue .s5-footer-decor-left { left: -8px; }
+  #venue .s5-footer-decor-right { right: -8px; }
+  #venue .s5-footer-decor .s5-floor-lamp { width: 36px; }
+  #venue .s5-footer-decor .s5-floor-diya { width: 46px; }
+  #venue .s5-footer-decor .s5-floor-flowers { width: 72px; }
+}
+
+@media (min-width: 641px) {
+  #venue .s5-top-divider { width: min(100%, 1100px); top: 0; left: 50%; right: auto; transform: translateX(-50%); }
+  #venue .s5-floral-top { height: 208px; inset: 16px 0 auto; }
+  #venue .s5-garland-l1 { width: 58px; left: 26px; top: 16px; z-index: 1; }
+  #venue .s5-garland-l2 { display: block; width: 33px; left: 58px; top: 16px; z-index: 4; }
+  #venue .s5-garland-r2 { width: 52px; right: 24px; top: 14px; }
+  #venue .s5-hanging-lamp-left { width: 78px; left: 31%; top: 14px; }
+  #venue .s5-hanging-lamp-right { width: 82px; right: 31%; top: 12px; }
+  #venue .s5-content { max-width: 860px; padding: 0 22px; }
+  #venue .s5-heading { padding-top: 196px; }
+  #venue .s5-heading h2 { font-size: 84px; }
+  #venue .s5-heading-divider { width: 220px; max-width: 34%; }
+  #venue .s5-heading p { font-size: 13px; }
+  #venue .s5-card-wrap { max-width: 600px; margin-top: 12px; }
+  #venue .s5-venue-card { aspect-ratio: 9 / 10; }
+  #venue .s5-card-content { top: 22.5%; width: 79%; }
+  #venue .s5-card-content h3 { font-size: clamp(28px, 4vw, 36px); }
+  #venue .s5-card-approved-divider { width: 235px; margin: 16px auto 10px; }
+  #venue .s5-ballroom { font-size: 30px; margin-bottom: 16px; }
+  #venue .s5-card-content address { font-size: 16px; margin-bottom: 22px; }
+  #venue .s5-direction-button { width: 268px; }
+  #venue .s5-countdown-block { max-width: 760px; margin-top: 16px; }
+  #venue .s5-countdown-divider { width: min(56%, 360px); margin-bottom: 10px; }
+  #venue .s5-days-stage { grid-template-columns: minmax(100px, 1fr) auto minmax(100px, 1fr); gap: 10px; }
+  #venue .s5-count-flourish { width: 106px; }
+  #venue .s5-days-hero strong { font-size: clamp(132px, 14vw, 182px); }
+  #venue .s5-days-hero span { font-size: 17px; letter-spacing: .42em; margin-top: 4px; }
+  #venue .s5-time-strip { max-width: 500px; margin-top: 12px; grid-template-columns: 1fr 18px 1fr 18px 1fr; column-gap: 12px; }
+  #venue .s5-time-unit strong { font-size: 48px; }
+  #venue .s5-time-unit span { font-size: 12px; }
+  #venue .s5-time-separator { width: 18px; height: 56px; }
+  #venue .s5-scenery { height: 272px; margin-top: -24px; }
+  #venue .s5-footer-decor-left { left: 18px; }
+  #venue .s5-footer-decor-right { right: 18px; }
+  #venue .s5-footer-decor .s5-floor-lamp { width: 58px; }
+  #venue .s5-footer-decor .s5-floor-diya { width: 72px; }
+  #venue .s5-footer-decor .s5-floor-flowers { width: 118px; }
+}
+
+.footer { margin-top: -1px; border-top: 2px solid rgba(212,154,67,.85); }
+
+#venue .s5-footer-decor { display:none !important; }
+
+/* Attempt 66_15: mobile-first countdown and an image-backed seamless temple sunset footer. */
+#venue.s5-venue .s5-content { position:relative; z-index:4; }
+#venue .s5-countdown-block { position:relative; z-index:5; max-width:390px; margin:4px auto 0; }
+#venue .s5-countdown-editorial { align-items:center; }
+#venue .s5-countdown-divider { display:block; width:min(63%,240px); max-width:240px; margin:0 auto 6px; opacity:1; }
+#venue .s5-days-stage { width:100%; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); gap:5px; align-items:center; }
+#venue .s5-count-flourish { width:72px; height:auto; max-width:100%; opacity:.98; filter:none; }
+#venue .s5-count-flourish-left { justify-self:end; transform:translate(0,5px); }
+#venue .s5-count-flourish-right { justify-self:start; transform:translate(0,5px); }
+#venue .s5-days-hero { display:flex; flex-direction:column; align-items:center; min-width:112px; gap:0; }
+#venue .s5-days-hero strong,
+#venue .s5-time-unit strong {
+  color:#8b0f2b;
+  display:block;
+  font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-style:normal;
+  font-weight:500;
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:'lnum' 1, 'tnum' 1;
+  text-align:center;
+  letter-spacing:-.025em;
+  padding:0 2px;
+  white-space:nowrap;
+}
+#venue .s5-days-hero strong { font-size:clamp(74px,22vw,88px); line-height:1.06; min-width:2ch; }
+#venue .s5-days-hero span { margin-top:0; padding-left:.24em; color:#64483d; font:500 11px/1.25 'Cormorant Garamond',Georgia,serif; letter-spacing:.24em; white-space:nowrap; }
+#venue .s5-time-strip {
+  width:min(100%,304px);
+  margin:12px auto 0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 13px minmax(0,1fr) 13px minmax(0,1fr);
+  gap:6px;
+  align-items:center;
+  padding:0;
+}
+#venue .s5-time-strip::before { display:none !important; }
+#venue .s5-time-unit { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:0; min-width:0; }
+#venue .s5-time-unit strong { height:42px; font-size:35px; line-height:42px; min-width:2ch; }
+#venue .s5-time-unit span { margin:1px 0 0; padding-left:.13em; font:500 9px/1.18 'Cormorant Garamond',Georgia,serif; letter-spacing:.13em; white-space:nowrap; color:#60483d; }
+#venue .s5-time-separator { width:13px; height:53px; max-width:100%; object-fit:contain; display:block; align-self:center; justify-self:center; margin:0; background:none !important; }
+#venue .s5-time-separator::before, #venue .s5-time-separator::after { display:none !important; content:none !important; }
+#venue .s5-scenery { position:relative; z-index:1; margin-top:-125px; width:100%; height:auto; line-height:0; overflow:visible; padding:0; }
+#venue .s5-scenery-picture { display:block; width:100%; margin:0; }
+#venue .s5-glow { display:none !important; }
+#venue .s5-waterfront { display:block; position:relative; width:100%; height:auto; max-width:none; object-fit:unset; object-position:initial; transform:none; margin:0; }
+#venue.s5-venue { padding-bottom:0; }
+#venue + .footer, #venue ~ .footer, .footer { margin-top:-1px; }
+@media (max-width:350px) {
+ #venue .s5-countdown-divider { width:min(67%,220px); margin-bottom:5px; }
+ #venue .s5-days-hero { min-width:98px; }
+ #venue .s5-days-hero strong { font-size:clamp(68px,22vw,76px); }
+ #venue .s5-days-hero span { font-size:10px; letter-spacing:.20em; }
+ #venue .s5-count-flourish { width:58px; }
+ #venue .s5-time-strip { width:min(100%,286px); grid-template-columns:minmax(0,1fr) 12px minmax(0,1fr) 12px minmax(0,1fr); gap:4px; margin-top:10px; }
+ #venue .s5-time-unit strong { font-size:31px; height:39px; line-height:39px; }
+ #venue .s5-time-unit span { font-size:8px; }
+ #venue .s5-time-separator { width:12px; height:47px; }
+ #venue .s5-scenery { margin-top:-104px; }
+}
+@media (min-width:641px) {
+ #venue .s5-countdown-block { max-width:760px; margin-top:14px; }
+ #venue .s5-countdown-divider { width:min(40%,300px); max-width:300px; margin-bottom:10px; }
+ #venue .s5-days-stage { max-width:500px; }
+ #venue .s5-days-hero { min-width:175px; }
+ #venue .s5-days-hero strong { font-size:clamp(106px,9vw,135px); line-height:1.05; }
+ #venue .s5-days-hero span { font-size:14px; }
+ #venue .s5-count-flourish { width:125px; }
+ #venue .s5-time-strip { width:min(100%,450px); grid-template-columns:minmax(0,1fr) 19px minmax(0,1fr) 19px minmax(0,1fr); gap:14px; margin-top:18px; }
+ #venue .s5-time-unit strong { font-size:46px; height:56px; line-height:56px; }
+ #venue .s5-time-unit span { font-size:12px; }
+ #venue .s5-time-separator { width:19px; height:66px; }
+ #venue .s5-scenery { margin-top:-180px; }
+}
+
+
+/* Attempt 66_16 — locked final waterfront and understated ending.
+   The user-approved artwork itself is a true RGBA PNG: upper sky fades to
+   transparency, with no flowers over the top. Preserve the live HTML timer. */
+#venue.s5-venue .s5-content { z-index: 4; }
+#venue.s5-venue .s5-countdown-block { z-index: 5; }
+#venue .s5-scenery {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  margin: -129px 0 0;
+  padding: 0;
+  overflow: visible;
+  line-height: 0;
+}
+#venue .s5-waterfront {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  max-width: none;
+  object-fit: contain;
+  transform: none;
+}
+#venue.s5-venue { padding-bottom: 0; }
+.footer {
+  position: relative;
+  box-sizing: border-box;
+  margin: -1px 0 0 !important;
+  padding: 8px 12px !important;
+  height: 66px;
+  min-height: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(110deg, #650b22 0%, #830f2b 52%, #620a20 100%);
+  border: 0;
+  border-top: 2px solid #ca9d59;
+  color: #e9bf73;
+}
+.footer-approved-divider {
+  display: block;
+  width: min(74%, 270px);
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
+  filter: brightness(1.18) saturate(1.08);
+}
+@media (max-width: 350px) {
+  #venue .s5-scenery { margin-top: -109px; }
+  .footer { height: 58px; min-height: 58px; padding: 6px 10px !important; }
+  .footer-approved-divider { width: min(78%, 236px); max-height: 42px; }
+}
+@media (min-width: 641px) {
+  #venue .s5-scenery { margin-top: -182px; }
+  .footer { height: 78px; min-height: 78px; padding: 9px 14px !important; }
+  .footer-approved-divider { width: min(36%, 330px); max-height: 58px; }
+}
+@media (min-width: 1150px) {
+  #venue .s5-scenery { max-height: 670px; overflow: hidden; }
+  #venue .s5-waterfront { width:100%; height: auto; }
+}
+
+/* Desktop crop retains the approved waterfront's entire lower scene and lamps. */
+#venue .s5-scenery-picture { display: block; width:100%; margin:0; line-height:0; }
+@media (min-width: 1150px) {
+  #venue .s5-scenery { max-height:none; overflow:visible; margin-top:-190px; }
+  #venue .s5-waterfront { width:100%; height:auto; object-fit:contain; }
+}
+
+
+/* ATTEMPT 66_18 — approved Section 5 lotus arch, replacing the suspended rod.
+   Dedicated scalable transparent SVG; title and other copy stay accessible live HTML.
+   Intentionally preserve the venue card, live timer, and approved waterfront. */
+#venue.s5-venue .s5-content { z-index: 4; }
+#venue .s5-heading {
+  position: relative;
+  isolation: isolate;
+  padding-top: clamp(176px, 50vw, 212px);
+}
+#venue .s5-entrance-arch {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+  width: min(104vw, 980px);
+  height: auto;
+  max-width: none;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#venue .s5-heading h2 {
+  position: relative;
+  margin: 0 0 14px;
+  font-size: clamp(56px, 15vw, 70px);
+  line-height: .95;
+}
+#venue .s5-heading p {
+  position: relative;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+#venue .s5-card-wrap { margin-top: 15px; }
+/* The compact end bar uses only the already approved golden ornament. */
+.footer {
+  background: #721026;
+  border-top: 1px solid #c99951;
+  box-shadow: none;
+}
+@media (max-width: 350px) {
+  #venue .s5-heading { padding-top: 166px; }
+  #venue .s5-entrance-arch { top: 0; width: 108vw; }
+  #venue .s5-heading h2 { font-size: 54px; margin-bottom: 12px; }
+  #venue .s5-card-wrap { margin-top: 13px; }
+}
+@media (min-width: 641px) {
+  #venue .s5-heading { padding-top: clamp(238px, 30vw, 300px); }
+  #venue .s5-entrance-arch { width: min(96vw, 800px); top: 0; }
+  #venue .s5-heading h2 { font-size: 84px; margin-bottom: 16px; }
+  #venue .s5-card-wrap { margin-top: 17px; }
+}
+
+
+/* Attempt 66_21 — final venue alignment refinement.
+   Pull the heading block upward so it sits more centrally between the arch and card,
+   push the pale arch-end ghosts off-screen, and simplify the footer bar. */
+#venue .s5-entrance-picture { display: contents; }
+#venue .s5-heading {
+  padding-top: clamp(148px, 40vw, 172px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+#venue .s5-entrance-arch {
+  top: 0;
+  width: min(110vw, 920px);
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+}
+#venue .s5-heading h2 {
+  margin: 0 0 10px;
+}
+#venue .s5-heading p {
+  margin: 0 auto;
+  max-width: 30ch;
+}
+#venue .s5-card-wrap {
+  margin-top: 8px;
+}
+@media (max-width: 350px) {
+  #venue .s5-heading { padding-top: 138px; }
+  #venue .s5-entrance-arch { width: 114vw; }
+  #venue .s5-heading h2 { margin-bottom: 8px; }
+  #venue .s5-card-wrap { margin-top: 6px; }
+}
+@media (min-width: 641px) {
+  #venue .s5-heading { padding-top: clamp(170px, 18vw, 246px); }
+  #venue .s5-entrance-arch {
+    top: 0;
+    width: min(104vw, 1740px);
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    transform: translateX(-50%);
+  }
+  #venue .s5-heading h2 { margin-bottom: 12px; }
+  #venue .s5-heading p { max-width: 38ch; }
+  #venue .s5-card-wrap { margin-top: 10px; }
+}
+
+/* Footer refinement: slimmer bar with gold rules at top and bottom. */
+.footer {
+  position: relative;
+  box-sizing: border-box;
+  margin: -1px 0 0 !important;
+  padding: 6px 12px !important;
+  height: 54px;
+  min-height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(110deg, #650b22 0%, #830f2b 52%, #620a20 100%);
+  border: 0;
+  border-top: 2px solid #ca9d59;
+  border-bottom: 2px solid #ca9d59;
+  box-shadow: none;
+  color: #e9bf73;
+}
+.footer-approved-divider {
+  display: block;
+  width: min(70%, 248px);
+  height: auto;
+  max-height: 34px;
+  object-fit: contain;
+  filter: brightness(1.18) saturate(1.08);
+}
+@media (max-width: 350px) {
+  .footer { height: 48px; min-height: 48px; padding: 5px 10px !important; }
+  .footer-approved-divider { width: min(74%, 218px); max-height: 30px; }
+}
+@media (min-width: 641px) {
+  .footer { height: 62px; min-height: 62px; padding: 7px 14px !important; }
+  .footer-approved-divider { width: min(32%, 300px); max-height: 40px; }
+}
+
+
+/* Attempt 66_22 — seamlessly bridge the countdown and waterfront sky.
+   Blend the upper sunset sky earlier behind the live countdown using a
+   top-sky-only adjusted copy of the approved scene. The temple, pond,
+   waterfront structures and footer imagery remain pixel-identical below
+   source row 480. Only a small mobile overlap shifts the image upward. */
+@media (max-width: 640px) {
+  #venue.s5-venue .s5-scenery { margin-top: -139px; }
+}
+@media (max-width: 350px) {
+  #venue.s5-venue .s5-scenery { margin-top: -119px; }
+}
+
+
+/* MERGE 82 — Section 5 background integration only.
+   All existing Section 5 typography, card geometry and countdown spacing
+   are preserved from Attempt 66_22. The parent parchment layer continues
+   uninterrupted from Sections 3–4. */
+.parchment-sections > #venue.s5-venue {
+  background: transparent !important;
+  margin-top: 0 !important;
+}
+.parchment-sections > #venue.s5-venue::before {
+  background: none !important;
+}
+/* The approved waterfront's upper sky is transparent. Use a soft edge
+   through its first few rows so the orange sky emerges from the same
+   parchment instead of a pale horizontal colour band. */
+#venue.s5-venue .s5-waterfront {
+  /* Approved asset already includes the full parchment-to-sunset alpha fade.
+     Avoid masking it a second time, which created the dark horizontal band. */
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+
+/* ATTEMPT 83 — Approved Section 5-only refinements. */
+/* The donor frame artwork has transparent space above its arch, and the
+   intact RSVP section has its own bottom padding. Close that combined gap
+   without touching the RSVP section or any of its markup. */
+.parchment-sections > #venue.s5-venue {
+  margin-top: -48px !important;
+}
+/* Keep the existing unmodified PNG fade. The previously added external
+   mask caused a second fade, with an abrupt-looking transition in the sky. */
+#venue.s5-venue .s5-waterfront {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+
+/* ATTEMPT 85 — Continuous parchment-to-sunset compositing, Section 5 only.
+   One extended photograph begins transparently behind the countdown and
+   gains warmth gradually; its original temple and pond have exactly the
+   same on-screen position. No second mask or competing glow is applied. */
+#venue.s5-venue .s5-waterfront {
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+}
+@media (max-width:350px) {
+  #venue.s5-venue .s5-scenery {
+    margin-top:calc(-119px - 30.38674vw) !important;
+  }
+}
+@media (min-width:351px) and (max-width:640px) {
+  #venue.s5-venue .s5-scenery {
+    margin-top:calc(-139px - 30.38674vw) !important;
+  }
+}
+@media (min-width:641px) and (max-width:1149px) {
+  #venue.s5-venue .s5-scenery {
+    margin-top:calc(-182px - 30.38674vw) !important;
+  }
+}
+@media (min-width:1150px) {
+  #venue.s5-venue .s5-scenery {
+    margin-top:calc(-190px - 30.38674vw) !important;
+  }
+}
+
+/* Keep all live venue information and the CTA within the inner ornament.
+   Artwork, link destination and text are unchanged; only vertical rhythm
+   and button size are refined so the bottom lotus gets breathing room. */
+@media (max-width:640px) {
+  #venue.s5-venue .s5-card-content h3 {
+    padding:2px 0;
+    font-size:clamp(16px,4.55vw,21px);
+  }
+  #venue.s5-venue .s5-card-approved-divider {
+    width:min(51%,154px);
+    margin:6px auto 3px;
+  }
+  #venue.s5-venue .s5-ballroom {
+    font-size:clamp(16px,4.5vw,20px);
+    margin-bottom:5px;
+  }
+  #venue.s5-venue .s5-card-content address {
+    margin-bottom:6px;
+  }
+  #venue.s5-venue .s5-direction-button {
+    width:min(64%,164px);
+  }
+}
+@media (min-width:641px) {
+  #venue.s5-venue .s5-card-content h3 {
+    padding:2px 0;
+    font-size:clamp(26px,3.7vw,34px);
+  }
+  #venue.s5-venue .s5-card-approved-divider {
+    margin:12px auto 6px;
+  }
+  #venue.s5-venue .s5-ballroom {
+    margin-bottom:10px;
+  }
+  #venue.s5-venue .s5-card-content address {
+    margin-bottom:15px;
+  }
+  #venue.s5-venue .s5-direction-button {
+    width:min(90%,236px);
+  }
+}
+
+
+/* ATTEMPT 87 — one consistent parchment canvas and a single sunset layer.
+   The upper sky has been subtly graded within the two existing waterfront
+   photos; no extra glow/mask or pale overlay competes with that image. */
+#venue.s5-venue {
+  background: transparent !important;
+}
+#venue.s5-venue::before {
+  background: none !important;
+}
+#venue.s5-venue .s5-scenery::before,
+#venue.s5-venue .s5-scenery::after {
+  content: none !important;
+  display: none !important;
+}
+#venue.s5-venue .s5-glow {
+  display: none !important;
+}
+
+/* Attempt 88 — replace baked image transparency with a controlled long CSS mask fade,
+   so the section parchment shows through with a true ombré transition. */
+#venue .s5-waterfront {
+  -webkit-mask-image: linear-gradient(180deg,
+    rgba(0,0,0,0.00) 0%,
+    rgba(0,0,0,0.05) 6%,
+    rgba(0,0,0,0.14) 12%,
+    rgba(0,0,0,0.30) 20%,
+    rgba(0,0,0,0.52) 30%,
+    rgba(0,0,0,0.74) 40%,
+    rgba(0,0,0,0.90) 50%,
+    rgba(0,0,0,0.98) 58%,
+    rgba(0,0,0,1.00) 64%);
+  mask-image: linear-gradient(180deg,
+    rgba(0,0,0,0.00) 0%,
+    rgba(0,0,0,0.05) 6%,
+    rgba(0,0,0,0.14) 12%,
+    rgba(0,0,0,0.30) 20%,
+    rgba(0,0,0,0.52) 30%,
+    rgba(0,0,0,0.74) 40%,
+    rgba(0,0,0,0.90) 50%,
+    rgba(0,0,0,0.98) 58%,
+    rgba(0,0,0,1.00) 64%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Attempt 89 — remove the single-pixel paint seam where the RSVP section
+   ends behind the 48px-overlapping Section 5 arch. This only clips the
+   last two painted pixels of the empty RSVP section edge; no dimensions,
+   position, RSVP fields, interactions, or artwork are altered. */
+.parchment-sections > #rsvp.s4-rsvp {
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  clip-path: inset(0 0 2px 0);
+}
+
+/* ATTEMPT 90 — Lower only the Guide Me There CTA inside the venue card.
+   The approved plaque, wording, CTA size, frame, backgrounds and fade are unchanged.
+   Relative offsets do not alter the card or surrounding section geometry. */
+#venue.s5-venue .s5-direction-button {
+  position: relative;
+  top: 12px;
+}
+@media (max-width: 350px) {
+  #venue.s5-venue .s5-direction-button { top: 8px; }
+}
+@media (min-width: 641px) {
+  #venue.s5-venue .s5-direction-button { top: 22px; }
+}
+
+/* ATTEMPT 96 — Venue visual alignment, without altering the approved assets or
+   surrounding section flow. The arch-to-title gap now closely matches the
+   subtitle-to-card ornament gap on phones, tablets and desktop screens. */
+#venue.s5-venue .s5-heading {
+  padding-top: clamp(128px, calc(40vw - 20px), 152px);
+}
+@media (max-width: 350px) {
+  #venue.s5-venue .s5-heading { padding-top: 118px; }
+}
+@media (min-width: 641px) {
+  #venue.s5-venue .s5-heading {
+    padding-top: clamp(150px, calc(18vw - 20px), 226px);
+  }
+}
+/* Centre the entire editable details group in the decorative plaque. The
+   half-button corrections account for the existing relative CTA offset,
+   retaining its exact size and spacing without touching the approved art. */
+#venue.s5-venue .s5-card-content {
+  top: 50%;
+  transform: translate(-50%, calc(-50% - 6px));
+  justify-content: center;
+}
+@media (max-width: 350px) {
+  #venue.s5-venue .s5-card-content {
+    transform: translate(-50%, calc(-50% - 4px));
+  }
+}
+@media (min-width: 641px) {
+  #venue.s5-venue .s5-card-content {
+    transform: translate(-50%, calc(-50% - 11px));
+  }
+}
