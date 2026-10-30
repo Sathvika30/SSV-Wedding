@@ -269,3 +269,75 @@
 /* Thank you reuses the original closed-scroll artwork, with no logistics paragraph. */
 #rsvp .s4-thanks-icon{margin:2.4cqw auto 1.8cqw;}
 #rsvp .s4-another{margin-top:2.5cqw;}
+
+
+/* --------------------------------------------------------------------------
+   MOBILE THANK-YOU SAFE-AREA FIX — keep confirmation content clear of the
+   lower lotus ornament on the closed scroll artwork. This is a mobile-only
+   compaction and lift; desktop layout and artwork remain unchanged.
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  #rsvp .s4-thanks {
+    top: 16.8cqw;
+    width: 44%;
+  }
+  #rsvp .s4-thanks .s4-monogram {
+    width: 11.8cqw;
+    margin-bottom: 0.8cqw;
+  }
+  #rsvp .s4-thanks h3 {
+    font-size: clamp(18px, 5.2cqw, 24px);
+    line-height: 1.05;
+    margin: 0 0 0.55cqw;
+  }
+  #rsvp .s4-thanks .s4-divider-img {
+    width: 39%;
+    max-height: 3.2cqw;
+    margin: 0.55cqw auto 0.8cqw;
+  }
+  #rsvp .s4-thanks-line {
+    font-size: clamp(13px, 3.45cqw, 17px);
+    line-height: 1.12;
+    margin: 0 auto 0.55cqw;
+    max-width: 96%;
+  }
+  #rsvp .s4-thanks-icon {
+    max-width: 34%;
+    max-height: 8.4cqw;
+    margin: 0.55cqw auto 0.55cqw;
+  }
+  #rsvp .s4-thanks-logistics {
+    font-size: clamp(10.5px, 2.7cqw, 13px);
+    line-height: 1.14;
+    max-width: 94%;
+    margin: 0 auto;
+  }
+  #rsvp .s4-another {
+    font-size: clamp(10px, 2.65cqw, 11.5px);
+    line-height: 1.1;
+    margin: 1cqw auto 0;
+    padding: 2px 3px;
+  }
+}
+
+@media (max-width: 390px) {
+  #rsvp .s4-thanks {
+    top: 16.3cqw;
+    width: 43.5%;
+  }
+  #rsvp .s4-thanks .s4-monogram {
+    width: 11.2cqw;
+  }
+  #rsvp .s4-thanks-line {
+    font-size: clamp(12.5px, 3.3cqw, 16px);
+  }
+  #rsvp .s4-thanks-logistics {
+    font-size: clamp(10px, 2.6cqw, 12.5px);
+  }
+  #rsvp .s4-thanks-icon {
+    max-height: 7.8cqw;
+  }
+  #rsvp .s4-another {
+    margin-top: 0.8cqw;
+  }
+}
